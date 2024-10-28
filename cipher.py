@@ -1,25 +1,22 @@
-def caesar_cipher(text, shift=5):
+def caesar_cipher(plain_text):
+    shift = 5
     encrypted_text = ""
 
-    for char in text:
-        # Check if the character is an uppercase letter
-        if char.isupper():
-            # Shift within uppercase letters (A-Z)
-            encrypted_text += chr((ord(char) - 65 + shift) % 26 + 65)
-        # Check if the character is a lowercase letter
-        elif char.islower():
-            # Shift within lowercase letters (a-z)
-            encrypted_text += chr((ord(char) - 97 + shift) % 26 + 97)
+    for char in plain_text:
+        if char.isalpha():  # Check if character is a letter
+            shift_base = ord('a') if char.islower() else ord('A')
+            encrypted_char = chr((ord(char) - shift_base + shift) % 26 + shift_base)
+            encrypted_text += encrypted_char
         else:
-            # Leave special characters unchanged
-            encrypted_text += char
+            encrypted_text += char  # Keep non-alphabet characters unchanged
 
     return encrypted_text
 
-# Get user input
-plain_text = input("Enter a sentence to encrypt: ")
+if __name__ == "__main__":
+    plain_text = input("Enter text to encrypt: ")
+    # Call the function to get the encrypted text
+    encrypted = caesar_cipher(plain_text)  # Ensure you assign the output here
+    print(encrypted)  # Print only the encrypted text
 
-# Encrypt the input text and print the result
-encrypted_text = caesar_cipher(plain_text)
-print("Encrypted text:", encrypted_text)
+
 

@@ -8,7 +8,7 @@ import builtins
                         [['python is fun!', 'udymts nx kzs!'],
                         ['aaa', 'fff'],
                         ['xyz', 'cde'],
-                        ['A sentence with Capital letters.', 'f xjsyjshj bnym hfunyfq qjyyjwx.'],
+                        ['A sentence with Capital letters.', 'F xjsyjshj bnym Hfunyfq qjyyjwx.'],
                         ['#$%^&*()', '#$%^&*()']
                         ])
 def test_cipher(original_sentence, encrypted_sentence, monkeypatch):
